@@ -30,6 +30,20 @@ The analysis compares sample portfolios, simulated portfolios, the efficient fro
 11. Build the Capital Market Line from the computed tangency portfolio.
 12. Compute historical and parametric VaR/CVaR.
 
+## Key Results
+
+The notebook is designed to compute the main results directly from current market data:
+
+- Daily and annualized return/volatility estimates for each asset.
+- Example long-only portfolio return distributions.
+- Monte Carlo terminal capital distributions for an equal-weight portfolio.
+- A simulated long-only portfolio cloud and Markowitz efficient frontier.
+- The annualized tangency portfolio and its Sharpe ratio.
+- A Capital Market Line built from the computed risk-free rate and tangency portfolio.
+- Historical and parametric VaR/CVaR for the tangency portfolio, reported as positive losses.
+
+Exact values are intentionally not hardcoded because the analysis downloads live market data from Yahoo Finance.
+
 ## Risk Metric Convention
 
 VaR and CVaR are reported as positive losses.
@@ -58,24 +72,25 @@ The underlying return quantiles and tail means are also documented in the notebo
 
 ```text
 portfolio-risk-analysis/
-├── README.md
-├── requirements.txt
-├── portfolio_risk_analysis.ipynb
-├── src/
-│   └── portfolio_risk/
-│       ├── __init__.py
-│       ├── data.py
-│       ├── returns.py
-│       ├── portfolios.py
-│       ├── monte_carlo.py
-│       ├── markowitz.py
-│       ├── risk_metrics.py
-│       └── plotting.py
-└── tests/
-    ├── test_returns.py
-    ├── test_portfolios.py
-    ├── test_markowitz.py
-    └── test_risk_metrics.py
+|-- README.md
+|-- requirements.txt
+|-- pyproject.toml
+|-- portfolio_risk_analysis.ipynb
+|-- src/
+|   `-- portfolio_risk/
+|       |-- __init__.py
+|       |-- data.py
+|       |-- returns.py
+|       |-- portfolios.py
+|       |-- monte_carlo.py
+|       |-- markowitz.py
+|       |-- risk_metrics.py
+|       `-- plotting.py
+`-- tests/
+    |-- test_returns.py
+    |-- test_portfolios.py
+    |-- test_markowitz.py
+    `-- test_risk_metrics.py
 ```
 
 ## How To Run
@@ -84,25 +99,19 @@ Create and activate a virtual environment, then install dependencies:
 
 ```bash
 pip install -r requirements.txt
+pip install -e .
 ```
 
 Run the tests:
 
 ```bash
-PYTHONPATH=src pytest
+pytest
 ```
 
 Open the notebook:
 
 ```bash
 jupyter notebook portfolio_risk_analysis.ipynb
-```
-
-On Windows PowerShell, run tests with:
-
-```powershell
-$env:PYTHONPATH = "src"
-pytest
 ```
 
 ## Main Results
