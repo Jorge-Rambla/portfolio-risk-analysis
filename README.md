@@ -129,3 +129,23 @@ The notebook computes the main results from downloaded data rather than hardcodi
 - parametric VaR and CVaR.
 
 Because the data is downloaded live from Yahoo Finance, exact numerical results can vary over time.
+
+## Selected Figures
+
+### Efficient Frontier
+
+![Efficient Frontier](docs/images/efficient-frontier.png)
+
+This figure shows simulated long-only portfolios together with the Markowitz efficient frontier. It communicates the core risk-return trade-off and highlights the set of portfolios that dominate lower-return alternatives for a given volatility level.
+
+### Capital Market Line
+
+![Capital Market Line](docs/images/capital-market-line.png)
+
+The Capital Market Line connects the risk-free asset with the optimized tangency portfolio. It shows how the tangency portfolio improves the risk-adjusted opportunity set relative to the risky-asset frontier.
+
+### VaR And CVaR Risk View
+
+![VaR and CVaR](docs/images/risk-metrics-var-cvar.png)
+
+This histogram shows the tangency portfolio's daily return distribution with the historical VaR return quantile and CVaR tail mean. The README and notebook report VaR/CVaR as positive losses while documenting the underlying negative return levels.
